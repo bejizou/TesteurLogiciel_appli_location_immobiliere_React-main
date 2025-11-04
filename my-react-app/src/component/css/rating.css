@@ -1,0 +1,36 @@
+/* ====== NOTES (ÉTOILES) ====== */
+.rating,
+.rating-long-title {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.star {
+  width: 25px;
+  margin-left: 10px;
+}
+
+/* Tablette */ 
+@media (min-width: 600px) and (max-width: 830px) {
+  .star {
+    width: 22px;
+  }
+}
+
+
+/* 📱 MOBILE (480px max) */
+@media (max-width: 480px) {
+  .rating {
+    position: relative;
+    top: 23px;
+  }
+  .rating-long-title {
+    position: relative;
+    top: 38px;
+  }
+  .star {
+    width: 16px;
+    margin: 0 5px 0 0;
+  }
+}

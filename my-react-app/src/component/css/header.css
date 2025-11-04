@@ -1,0 +1,124 @@
+.header {
+    width: 100%;
+    max-width: 1450px;
+    margin-top: 20px;
+    margin-right: 100px;
+
+    display: flex;
+    /* alignement en ligne */
+    justify-content: space-between;
+    /* espace entre logo et menu */
+    align-items: center;
+    /* centrer verticalement */
+    padding: 5px 5px;
+    /* espace intérieur */
+    top: 0;
+    z-index: 1000;
+}
+
+
+nav {
+
+    width: 309px;
+    height: 34px;
+    display: flex;
+    justify-content: flex-end;
+
+    top: 17px;
+    left: 925px;
+    /* pour aligner les éléments du menu */
+    align-items: center;
+    /* alignement vertical */
+    gap: 57px;
+    /* espace entre les items */
+
+    opacity: 1;
+    /* totalement visible */
+    transform: rotate(0deg);
+  
+    padding: 27px;
+    color: #000000;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+nav:hover {
+
+    color: #000000;;
+}
+
+.logo {
+    width: 211px;
+    height: 68px;
+
+}
+
+  a {
+    font-weight: 500;
+    color: black;
+    text-decoration: none;
+    
+}
+
+nav.a:hover {
+    text-decoration: underline;
+    color: #000000;
+}
+/* 📱 TABLETTE (iPad, 768px max) */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: row;
+        align-items: center;
+        padding: 0 10px;
+        justify-content: space-around;
+    }
+
+    .logo {
+        margin-left: 0;
+        margin-right: 0;
+        width: 80px;
+        height: 42px;
+    }
+
+    nav {
+        justify-content: flex-end;
+        padding: 15px 0;
+        font-size: 18px;
+    }
+
+    a {
+        margin-right: 15px;
+    }
+}
+
+/* 📱 MOBILE (480px max) */
+@media (max-width: 480px) {
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+
+    .logo {
+        width: 120px;
+        height: 65px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+    nav {
+        justify-content: flex-end;
+        padding: 10px 0;
+        margin-right: 0;
+        font-size: 16px;
+        text-align: center;
+        width: 54%;
+    }
+
+    a {
+        margin: 0 10px;
+        font-size: 16px;
+    }
+}

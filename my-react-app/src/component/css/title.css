@@ -1,0 +1,71 @@
+.informationx {
+  position: absolute;
+  top: 608px;
+  width: 100%;
+  
+
+}
+
+.information-title {
+  margin: 0;
+  color: #ff6060;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.3;
+  width: 80%;
+}
+
+.information-location {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.43;
+  color: #000;
+}
+
+/* ====== Responsive TABLETTE : entre 600px et 830px ====== */
+@media (min-width: 600px) and (max-width: 830px) {
+  .informationx {
+    /* position: absolute;
+    top: 480px;  Ajustement du placement
+    width: 90%; */
+    margin-top: -74px;
+   align-items: flex-start;
+           position: relative;
+        top: auto;
+        margin-left: 7px;
+        width: 80%;
+  }
+
+  .information-title {
+    font-size: 28px;
+    width: 80%;
+  }
+
+  .information-location {
+    font-size: 16px;
+  }
+}
+
+/* ====== Responsive MOBILE : 
+/* 📱 MOBILE (480px max) **/
+@media (max-width: 480px) {
+  .informationx {
+    position: absolute;
+    top: 390px;
+    width: 85%;
+  }
+
+  .information-title {
+    color: #ff6060;
+    font-weight: 500;
+    font-size: 18px;
+    width: 100%;
+  }
+
+  .information-location {
+    font-size: 15px;
+  }
+}
