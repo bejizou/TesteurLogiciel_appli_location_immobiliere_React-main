@@ -1,7 +1,4 @@
-// Import des fonctions nécessaires depuis React Testing Library
-// render : pour afficher le composant dans un DOM simulé
-// screen : pour rechercher des éléments dans le DOM
-// fireEvent : pour simuler des interactions (clics, etc.)
+
 import { render, screen, fireEvent } from "@testing-library/react";
 
 // Import du composant Carrousel à tester

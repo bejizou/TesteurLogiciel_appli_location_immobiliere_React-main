@@ -5,6 +5,7 @@
   flex-direction: row;
   margin-bottom: 10px;
   flex-wrap: wrap;
+
 }
 
 .tag {
@@ -31,7 +32,8 @@
   }
 }
 
-/* Mobile */
+
+/* 📱 MOBILE (480px max) */
 @media (max-width: 480px){
     .tags{
         flex-wrap: wrap;

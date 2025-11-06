@@ -8,7 +8,7 @@ import Host from "../component/host";
 const mockDataShortTitle = {
   titleLength: 20, // titre court (<25)
   host: {
-    name: "Nathalie Jean",
+    name: "Zayn Ghali",
     picture: "https://example.com/nathalie.jpg"
   }
 };
@@ -16,7 +16,7 @@ const mockDataShortTitle = {
 const mockDataLongTitle = {
   titleLength: 30, // titre long (>=25)
   host: {
-    name: "Jean Dupont",
+    name: "ELBEJI Zayn",
     picture: "https://example.com/jean.jpg"
   }
 };
@@ -29,11 +29,11 @@ describe("Host Component", () => {
     render(<Host data={mockDataShortTitle} />);
 
     // Vérifie que le nom de l’hôte s’affiche
-    const hostName = screen.getByText("Nathalie Jean");
+    const hostName = screen.getByText("Zayn Ghali");
     expect(hostName).toBeInTheDocument();
 
     // Vérifie que la photo est présente avec la bonne source et alt
-    const hostImage = screen.getByAltText("Nathalie Jean");
+    const hostImage = screen.getByAltText("Zayn Ghali");
     expect(hostImage).toBeInTheDocument();
     expect(hostImage).toHaveAttribute("src", "https://example.com/nathalie.jpg");
   });
