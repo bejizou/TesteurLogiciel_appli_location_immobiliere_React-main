@@ -2,7 +2,7 @@ import "./css/host.css"
 
 function Host({ data }) {
   const currentHost = data ;
-  console.log(currentHost);
+
   return (
     
         <div className={ currentHost.titleLength < 25  ? "host" : "host-long-title"} >

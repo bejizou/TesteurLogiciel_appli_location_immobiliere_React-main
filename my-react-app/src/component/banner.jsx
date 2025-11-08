@@ -16,4 +16,4 @@ function Banner({bannerImage, bannerTitle}) {
         
     )
   }
-  export default Banner
+  export default Banner;

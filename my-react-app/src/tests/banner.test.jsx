@@ -1,14 +1,9 @@
-/**
-
-* @file Banner.test.jsx
-* @description Tests Banner sans jest.mock().
-  */
 
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Banner from "../component/banner";
 
-// 🔧 Mock CSS
+//  Mock CSS
 vi.mock("../component/css/banner.css", () => ({}));
 
 describe("Banner Component", () => {

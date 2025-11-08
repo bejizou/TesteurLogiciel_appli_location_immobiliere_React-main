@@ -1,7 +1,7 @@
 import './css/card.css';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from "react";
-
+import API_ENDPOINTS from '../config/api';
 function Card() {
 
   // Déclaration d'un état "data" qui contient un tableau vide au départ
@@ -16,7 +16,7 @@ function Card() {
 
   // Fonction qui récupère les données depuis l'API locale
   const fetchData = () => {
-    fetch("http://localhost:8080/api/properties") // requête HTTP GET à l'API
+      fetch(`${API_ENDPOINTS.PROPERTIES}`) // requête HTTP GET à l'API
       .then((response) => response.json())       // conversion de la réponse en JSON
       .then((json) => {
         setData(json);                           // mise à jour de l'état "data" avec les données récupérées

@@ -17,7 +17,7 @@ describe("Carrousel Component", () => {
 
   // Premier test : vérifier que la première image et le compteur s'affichent correctement
   it("renders the first image and counter correctly", () => {
-    // Affiche le composant Carrousel avec les données mock
+
     render(<Carrousel data={mockData} />);
 
     // Recherche l'image par son attribut alt

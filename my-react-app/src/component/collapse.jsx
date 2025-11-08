@@ -5,10 +5,9 @@ import Vector from "../assets/arrow-down.svg";
 function Collapse({ data, title }) {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
-  console.log(data);
   const handleCollapseClick = () => {
     setIsCollapsed(!isCollapsed);
-    console.log("click");
+    
   };
 
   return (

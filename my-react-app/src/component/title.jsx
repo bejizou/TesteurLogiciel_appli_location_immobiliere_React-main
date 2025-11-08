@@ -6,7 +6,7 @@ import Rates from './rating';
 
 function Title({ data }) {
     const currentHostInformation = data ;
-    console.log(currentHostInformation.titleLength);
+  
     
     return (
       

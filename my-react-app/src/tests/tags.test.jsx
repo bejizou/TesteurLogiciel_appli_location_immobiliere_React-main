@@ -1,8 +1,3 @@
-/**
-
-* @file Tags.test.jsx
-* @description Version corrigée pour le composant Tags utilisant <ul> et <li>.
-  */
 
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";

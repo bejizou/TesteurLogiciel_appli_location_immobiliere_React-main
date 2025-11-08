@@ -6,6 +6,7 @@
 
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
+//MemoryRouter simule un environnement React Router pour les <Link> sans besoin de navigateur réel.
 import { MemoryRouter } from "react-router-dom";
 import Header from "../component/header";
 
