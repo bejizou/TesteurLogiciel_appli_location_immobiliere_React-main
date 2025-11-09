@@ -10,8 +10,8 @@ describe("Host Component", () => {
     title: "Appartement test",
     titleLength: 20,
     host: {
-      name: "John Doe",
-      picture: "john.jpg",
+      name: "zayn Ghali",
+      picture: "zayn.jpg",
     },
     rating: 4,
   };

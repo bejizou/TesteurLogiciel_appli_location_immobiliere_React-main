@@ -45,7 +45,7 @@ const mockData = {
   location: "Paris",
   tags: ["wifi", "parking"],
   rating: 4,
-  host: { name: "John Doe", picture: "host.jpg" },
+  host: { name: "Zayn Ghali", picture: "host.jpg" },
   description: "Très bel appartement",
   equipments: ["TV", "Wi-Fi"],
   cover: "cover.jpg",
