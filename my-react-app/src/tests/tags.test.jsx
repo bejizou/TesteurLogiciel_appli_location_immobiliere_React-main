@@ -1,40 +1,55 @@
-
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import Tags from "../component/tags";
 
-// Mock du CSS
-vi.mock("../component/css/tags.css", () => ({}));
-
-const mockShort = { title: "Studio", titleLength: 10, tags: ["Wifi", "Vue mer"] };
-const mockLong = { title: "Appartement spacieux avec terrasse", titleLength: 40, tags: ["Garage", "Piscine"] };
-
 describe("Tags Component", () => {
-it("renders short title tags correctly", () => {
-render(<Tags data={mockShort} />);
+  it("renders all tags correctly with short title", () => {
+    const mockData = {
+      title: "Appartement",
+      titleLength: 10,
+      tags: ["WiFi", "Parking", "Piscine"],
+    };
 
+    render(<Tags data={mockData} />);
 
-// Le conteneur est maintenant une <ul>
-const list = screen.getByRole("list");
-expect(list).toHaveClass("tags");
+    // Vérifier la classe du <ul>
+    const ul = screen.getByRole("list");
+    expect(ul).toHaveClass("tags");
 
-// Vérifie que chaque tag est bien affiché
-mockShort.tags.forEach(tag => {
-  expect(screen.getByText(tag)).toBeInTheDocument();
-});
+    // Vérifier que chaque tag est rendu
+    mockData.tags.forEach((tag) => {
+      expect(screen.getByText(tag)).toBeInTheDocument();
+      expect(screen.getByText(tag)).toHaveClass("tag");
+    });
+  });
 
+  it("applies long-title class when titleLength >= 25", () => {
+    const mockData = {
+      title: "Appartement très très long au centre-ville",
+      titleLength: 30,
+      tags: ["WiFi", "Parking"],
+    };
 
-});
+    render(<Tags data={mockData} />);
 
-it("renders long title tags correctly", () => {
-render(<Tags data={mockLong} />);
-const list = screen.getByRole("list");
-expect(list).toHaveClass("long-title-tags");
-});
+    const ul = screen.getByRole("list");
+    expect(ul).toHaveClass("long-title-tags");
 
-it("renders correct number of tags", () => {
-render(<Tags data={mockShort} />);
-const tagElements = screen.getAllByRole("listitem");
-expect(tagElements).toHaveLength(mockShort.tags.length);
-});
+    mockData.tags.forEach((tag) => {
+      expect(screen.getByText(tag)).toBeInTheDocument();
+    });
+  });
+
+  it("renders empty list if no tags", () => {
+    const mockData = {
+      title: "Appartement vide",
+      titleLength: 12,
+      tags: [],
+    };
+
+    render(<Tags data={mockData} />);
+
+    const ul = screen.getByRole("list");
+    expect(ul).toBeEmptyDOMElement();
+  });
 });

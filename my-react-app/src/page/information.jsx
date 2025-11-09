@@ -59,13 +59,15 @@ function Accomodation() {
   return (
     <div className="information">
       <Carrousel data={card} />
-      <Host data={card} />
+     
 
-      <div>
+      <div className="tabinfo">
         <Title data={card} />
         <div className="tags-rates-container">
-          <Tags data={card} />
-          <Rates data={card} />
+          
+          <Host data={card} />
+          
+          
         </div>
       </div>
 

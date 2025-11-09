@@ -1,7 +1,7 @@
 .header {
     width: 100%;
-    max-width: 1450px;
-    margin-top: 20px;
+    /*  max-width: 1450px; */
+    margin-top: 40px; 
     margin-right: 100px;
 
     display: flex;
@@ -66,19 +66,21 @@ nav.a:hover {
     color: #000000;
 }
 /* 📱 TABLETTE (iPad, 768px max) */
-@media (max-width: 768px) {
+@media (max-width: 830px) {
     .header {
         flex-direction: row;
         align-items: center;
         padding: 0 10px;
-        justify-content: space-around;
+       /* justify-content: space-around; */
+
+        margin-top: 40px;
     }
 
     .logo {
         margin-left: 0;
         margin-right: 0;
-        width: 80px;
-        height: 42px;
+        width: 211px;
+        height: 68px;
     }
 
     nav {
@@ -99,6 +101,7 @@ nav.a:hover {
         justify-content: space-between;
         align-items: center;
         padding: 0;
+         margin-top: 20px;
     }
 
     .logo {

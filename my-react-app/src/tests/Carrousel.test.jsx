@@ -1,45 +1,50 @@
-
 import { render, screen, fireEvent } from "@testing-library/react";
-
-// Import du composant Carrousel à tester
+import "@testing-library/jest-dom";
 import Carrousel from "../component/carrousel";
 
-// Données fictives (mock) pour le test
-// title : titre de l'appartement
-// pictures : tableau des images du carrousel
+// Données fictives pour le test
 const mockData = {
   title: "Appartement test",
-  pictures: ["image1.jpg", "image2.jpg", "image3.jpg"]
+  pictures: ["image1.jpg", "image2.jpg", "image3.jpg"],
 };
 
-// Regroupe tous les tests liés au composant Carrousel
 describe("Carrousel Component", () => {
-
-  // Premier test : vérifier que la première image et le compteur s'affichent correctement
+  
   it("renders the first image and counter correctly", () => {
-
     render(<Carrousel data={mockData} />);
 
-    // Recherche l'image par son attribut alt
+    // Vérifie que la première image est affichée avec l'attribut alt correct
     const image = screen.getByAltText("Appartement test");
-    // Vérifie que l'image est bien présente dans le DOM
     expect(image).toBeInTheDocument();
+    expect(image).toHaveAttribute("src", "image1.jpg");
 
-    // Recherche le compteur affichant "1/3"
+    // Vérifie que le compteur initial est correct
     const counter = screen.getByText("1/3");
-    // Vérifie que le compteur est bien présent dans le DOM
     expect(counter).toBeInTheDocument();
   });
 
-  // Deuxième test : vérifier le message affiché quand il n'y a pas d'images
   it("renders message if no pictures available", () => {
-    // Affiche le composant Carrousel avec un tableau d'images vide
     render(<Carrousel data={{ title: "Vide", pictures: [] }} />);
 
-    // Recherche le message affiché quand aucune image n'est disponible
-    const message = screen.getByText("No pictures available");
-    // Vérifie que le message est bien présent dans le DOM
+    // Vérifie le message affiché lorsqu'il n'y a pas d'images
+    const message = screen.getByText(/No pictures available/i);
     expect(message).toBeInTheDocument();
   });
 
+  it("navigates through images when arrows are clicked", () => {
+    render(<Carrousel data={mockData} />);
+
+    const nextButton = screen.getByTestId("next-arrow");
+    const prevButton = screen.getByTestId("prev-arrow");
+
+    // Clique sur la flèche suivante et vérifie l'image et le compteur
+    fireEvent.click(nextButton);
+    expect(screen.getByAltText("Appartement test")).toHaveAttribute("src", "image2.jpg");
+    expect(screen.getByText("2/3")).toBeInTheDocument();
+
+    // Clique sur la flèche précédente et vérifie l'image et le compteur
+    fireEvent.click(prevButton);
+    expect(screen.getByAltText("Appartement test")).toHaveAttribute("src", "image1.jpg");
+    expect(screen.getByText("1/3")).toBeInTheDocument();
+  });
 });

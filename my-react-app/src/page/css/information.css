@@ -19,17 +19,27 @@
   margin-top:20px;
    
 }
-
+/*
+@media (max-width: 830px) {
+   .tags-rates-container{
+width: 100%;
+   }
+}*/
 /* 📱 MOBILE (480px max) */
 @media (max-width: 480px){
   .tags-rates-container{
-    display: block;
-   /* margin-top: 15px;*/
-   margin-top: 0%;
+         display: block;
+         margin-top: 0px; 
+      
+        align-items: center;
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        width: 100%;
   }
   .collapse-container {
     display: block;
-    margin-top: 80px;
+    
   }
   .first {
     width: 100%;

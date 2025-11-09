@@ -1,35 +1,67 @@
-
 import { render, screen, waitFor } from "@testing-library/react";
-import "@testing-library/jest-dom";
 import { MemoryRouter } from "react-router-dom";
 import Card from "../component/card";
+import { vi } from "vitest";
 
-// Mock CSS
-vi.mock("../component/css/card.css", () => ({}));
+// Mock useNavigate
+const mockNavigate = vi.fn();
+vi.mock("react-router-dom", async () => {
+  const actual = await vi.importActual("react-router-dom");
+  return {
+    ...actual,
+    useNavigate: () => mockNavigate,
+    Link: ({ children, to }) => <a href={to}>{children}</a>,
+  };
+});
 
-// Mock global.fetch
-const mockData = [
-{ id: "1", title: "Loft Cosy", cover: "img1.jpg" },
-{ id: "2", title: "Villa Luxueuse", cover: "img2.jpg" },
+// Mock global fetch
+global.fetch = vi.fn();
+
+const mockCards = [
+  { id: "1", title: "Appartement 1", cover: "cover1.jpg" },
+  { id: "2", title: "Appartement 2", cover: "cover2.jpg" },
 ];
-global.fetch = vi.fn(() => Promise.resolve({ json: () => Promise.resolve(mockData) }));
+
+// Wrapper simple pour MemoryRouter
+const renderWithRouter = (ui) => render(ui, { wrapper: MemoryRouter });
 
 describe("Card Component", () => {
-it("fetches and displays cards", async () => {
-render( <MemoryRouter> <Card /> </MemoryRouter>
-);
-await waitFor(() => expect(screen.getByText("Loft Cosy")).toBeInTheDocument());
-expect(screen.getAllByRole("heading", { level: 2 }).length).toBe(2);
-});
+  beforeEach(() => {
+    vi.clearAllMocks();
+  });
 
-it("renders correct image and link", async () => {
-render( <MemoryRouter> <Card /> </MemoryRouter>
-);
-await waitFor(() => {
-const image = screen.getByAltText("Loft Cosy");
-expect(image).toHaveAttribute("src", "img1.jpg");
-const link = screen.getByText("Loft Cosy").closest("a");
-expect(link).toHaveAttribute("href", "/information/1");
-});
-});
+  it("renders loading initially", () => {
+    fetch.mockResolvedValueOnce(new Promise(() => {})); // promise pendante
+    renderWithRouter(<Card />);
+    expect(screen.getByText(/Chargement des logements/i)).toBeInTheDocument();
+  });
+
+  it("renders cards after successful fetch", async () => {
+    fetch.mockResolvedValueOnce({
+      ok: true,
+      json: async () => mockCards,
+    });
+
+    renderWithRouter(<Card />);
+
+    for (const card of mockCards) {
+      await waitFor(() => expect(screen.getByText(card.title)).toBeInTheDocument());
+      expect(screen.getByAltText(card.title)).toHaveAttribute("src", card.cover);
+    }
+  });
+
+  it("navigates to error page if fetch fails", async () => {
+    fetch.mockResolvedValueOnce({ ok: false, status: 500 });
+    renderWithRouter(<Card />);
+    await waitFor(() => expect(mockNavigate).toHaveBeenCalledWith("/Error"));
+  });
+
+  it("displays error message if fetch throws", async () => {
+    fetch.mockRejectedValueOnce(new Error("Network error"));
+    renderWithRouter(<Card />);
+    await waitFor(() => {
+      expect(screen.getByText(/Impossible de charger les logements/i)).toBeInTheDocument();
+      expect(mockNavigate).toHaveBeenCalledWith("/Error");
+    });
+  });
 });

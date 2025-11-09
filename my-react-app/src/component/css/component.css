@@ -1,0 +1,401 @@
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* ==================== CARROUSEL ==================== */
+.carrousel-container {
+  margin-top: 20px;
+}
+
+.carrousel {
+  position: relative;
+  align-items: center;
+
+  height: 415px;
+  justify-content: space-between;
+  margin-top: 20px;
+  opacity: 1;
+
+}
+
+.carrousel-image {
+  width: 100%;
+  height: 415px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Chevrons */
+.chevron-left,
+.chevron-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+}
+
+.chevron-left {
+  left: 20px;
+}
+
+.chevron-right {
+  right: 20px;
+}
+
+.counter {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+/* ==================== INFORMATIONS  ==================== */
+.informationx {
+
+  width: 80%;
+  text-align: left;
+}
+
+.information-title {
+  color: #ff6060;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 1.3;
+  margin-bottom: 10px;
+}
+
+.information-location {
+  font-family: "Montserrat", sans-serif;
+  font-size: 18px;
+  color: #000;
+}
+
+/* ==================== TAGS ==================== */
+.tags,
+.long-title-tags {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.tag {
+  align-items: center;
+  background: #ff6060;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  font-size: 14px;
+  font-weight: 500;
+  height: 25px;
+  justify-content: center;
+  margin-right: 10px;
+  text-align: center;
+  width: 23%;
+}
+
+/* ==================== HÔTE ==================== */
+.tabinfo {
+  -webkit-animation: Lodgings_appear__XMrPQ 1.5s;
+  animation: Lodgings_appear__XMrPQ 1.5s;
+  display: flex;
+
+
+}
+
+.host {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.hostRating {
+
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.host-long-title {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.host-name {
+  color: #ff6060;
+  display: flex;
+  font-size: 18px;
+  line-height: 1.3;
+  padding-right: 10px;
+  text-align: right;
+}
+
+.host-picture {
+  background: #c4c4c4;
+  border-radius: 90%;
+  height: 64px;
+  width: 64px;
+}
+
+/* ==================== NOTES (ÉTOILES) ==================== */
+
+.rating {
+  display: flex;
+  height: 36px;
+  margin-top: 20px;
+}
+
+.rating-long-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.star {
+  width: 25px;
+}
+
+/* ==================== RESPONSIVE TABLETTE ==================== */
+@media (max-width: 830px) {
+  .carrousel {
+    width: 100%;
+    height: 320px;
+    /* margin-top: 100px; */
+  }
+
+  .carrousel-image {
+    height: 320px;
+  }
+
+  .chevron-left,
+  .chevron-right {
+    width: 60px;
+    height: 60px;
+  }
+
+  .informationx {
+    width: 85%;
+    margin-top: 20px;
+  }
+
+  .information-title {
+    font-size: 28px;
+  }
+
+  .information-location {
+    font-size: 16px;
+  }
+
+  .host {
+
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+
+  }
+
+  .host-long-title {
+    margin-top: 15px;
+  }
+
+  .host-name {
+    font-size: 18px;
+    display: flex;
+    font-size: 18px;
+    line-height: 1.3;
+    padding-right: 10px;
+    text-align: right;
+  }
+
+  .host-picture {
+    background: #c4c4c4;
+    border-radius: 90%;
+    height: 64px;
+    width: 64px;
+  }
+
+  .star {
+    width: 22px;
+  }
+
+  .hostRating {
+
+    justify-content: space-between;
+    width: 100%;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tabinfo {
+
+    -webkit-animation: Lodgings_appear__XMrPQ 1.5s;
+    animation: Lodgings_appear__XMrPQ 1.5s;
+    display: flex;
+  }
+
+
+  .rating {
+    display: flex;
+    height: 18px;
+    justify-content: flex-start;
+    margin-right: 0;
+    margin-top: 0;
+    width: 98px;
+  }
+
+  .tagClass {
+
+    flex-wrap: wrap;
+    margin-bottom: 16.5px;
+    margin-top: 10px;
+  }
+
+  .tag {
+    align-items: center;
+    background: #ff6060;
+    border-radius: 10px;
+    color: #fff;
+    display: flex;
+    font-size: 14px;
+    font-weight: 500;
+
+    justify-content: center;
+    text-align: center;
+    width: 15%;
+
+
+    height: 20px;
+    margin-right: 10px;
+    margin-top: .5rem;
+    width: 35%;
+  }
+}
+
+/* ==================== RESPONSIVE MOBILE ==================== */
+@media (max-width: 480px) {
+  .carrousel {
+    width: 100%;
+    height: 250px;
+    margin-top: 20px;
+  }
+
+  .carrousel-image {
+    height: 250px;
+  }
+
+  .chevron-left,
+  .chevron-right {
+    width: 40px;
+    height: 40px;
+  }
+
+  .informationx {
+    width: 90%;
+    margin-top: 20px;
+  }
+
+  .information-title {
+    font-size: 20px;
+  }
+
+  .information-location {
+    font-size: 15px;
+  }
+
+  .tags,
+  .long-title-tags {
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-bottom: 16.5px;
+    margin-top: 10px;
+  }
+
+  .tag {
+    border-radius: 5px;
+    font-size: 10px;
+    height: 18px;
+    margin-right: 10px;
+    margin-top: .5rem;
+    width: 35%;
+  }
+
+  .host {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .host-long-title {
+    justify-content: space-between;
+  }
+
+  .host-name {
+
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.43;
+    /* 143% = 1.43 */
+    letter-spacing: 0;
+    text-align: right;
+    vertical-align: bottom;
+
+  }
+
+  .host-picture {
+    height: 32px;
+    width: 32px;
+  }
+
+  .star {
+    width: 18px;
+    height: 18px;
+    padding: 2px;
+
+  }
+
+  .counter {
+    font-size: 14px;
+  }
+
+  .hostRating {
+
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .tabinfo {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: space-between;
+
+  }
+
+  .tagClass {
+    flex-wrap: wrap;
+    margin-bottom: 16.5px;
+    margin-top: 10px;
+
+  }
+}

@@ -3,7 +3,7 @@ import { useState } from "react";
 import chevronLeft from "../assets/arrow-left.svg"
 import chevronRight from "../assets/arrow-right.svg"
 
-import './css/carrousel.css'
+import './css/component.css'
 
 
 
@@ -44,13 +44,13 @@ function Carrousel({data}) {
             </div>
             {currentSlide.pictures.length > 1 && (
                 <>
-                    <img 
+                    <img data-testid="prev-arrow"
                      className='chevron-left'
                     onClick={prevImage} 
                     src = {chevronLeft}
                      />
                     <img 
-                    className='chevron-right'
+                    className='chevron-right' data-testid="next-arrow"
                     onClick={nextImage} src ={chevronRight}
                     />
                 </>

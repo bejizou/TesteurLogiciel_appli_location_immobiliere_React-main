@@ -1,4 +1,4 @@
-import './css/tags.css';
+import './css/component.css';
 function Tags({ data }) {
 
         return (

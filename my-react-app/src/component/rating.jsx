@@ -1,6 +1,6 @@
 import pinkStar from '../assets/pink-star.svg';
 import greyStar from '../assets/grey-star.svg';
-import '../component/css/rating.css'
+import '../component/css/component.css'
 
 function Rates({ data }) {
     
